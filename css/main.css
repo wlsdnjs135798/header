@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style:none;
+}
+
+a {text-decoration: none; color: #333;}
+
+body {
+    color: #333;
+}
+
+/* 태블릿, 모바일용 */
+.xi-bars{display: none;}
+
+.m_nav {display: none;}
+
+/* header */
+header {
+    width:calc(100% - 100px); /* 양끝에 50px씩의 여백 남기고 크기 설정하고자 할때(가운데 공백 있어야함) */
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    background-color: bisque;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 9;
+}
+
+header h1 a img {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+header .pc ul {
+    display: flex;
+}
+
+header .pc ul li a {
+    padding: 0 30px;/* 좌우여백 동일하게 잡을 때 padding이 유용 */
+    display: block;
+}
+
+/* .main_visual */
+.main_visual {
+    height: 100vh;
+    position: relative;/* 아래쪽 태그가 우선적으로 적용됨=이제는 필요없는 속성이 됨 */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.main_visual div {
+    width: 100%;
+    position: absolute;/* 딱 본인들이 가진 크기 만큼만 영역 가지게 됨 
+    그래서 수직가운데 정렬시 글자 가운데 정렬할 때 width값도 같이 잡아줌 */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* left: 50%;
+    transform: translate(-50%, -50%); */
+    text-align: center;
+    color: #fff;
+}
+
+.main_visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.map {
+    background-color: rgb(252, 245, 245);
+    z-index: 9; /* position값이 필수! */
+    position: relative;
+    margin-top: 100vh;
+    padding: 100px 0;
+}
+
+.map .cont {
+    max-width: 1280px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.map .cont iframe {
+    width: 100%;
+}
+
+.map .cont div h4 {
+    font-size: 25px;
+}
+
+.map .cont div p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.map .cont div dl {
+    display: flex;
+    margin: 30px 0 40px;
+}
+
+.map .cont div dl dt {
+    font-weight: bold;
+    /* margin-right: 10px; */
+    margin: 0 10px 0 0;
+}
+
+.map .cont div dl dd {
+    /* margin-right: 30px; */
+    margin: 0 30px 0 0;
+}
+   
+@media screen and (max-width:1024px) {
+    .pc{
+        display: none;
+    }
+
+    .xi-bars {
+        display: block;
+        color: #fff;
+        line-height: 100px;
+        font-size: 20px;
+        margin-right: 20px;
+    }
+
+    .xi-bars span {
+        /* font-size: 0; */ 
+        position: absolute;
+        left: -999999999px;
+
+    }
+}/* 1024px 이하일 때 */
+
+@media screen and (max-width:640px) {
+    header {
+        width: calc(100% - 50px); /* 덧셈과 뺄셈은 무조건 앞뒤로 간격 띄워줘야 함 */
+    }
+
+    .map .cont div h4 {
+        font-size: 20px;
+    }
+
+    .map .cont div p {
+        font-size: 16px;
+    }
+
+    .map .cont div dl {
+        flex-wrap: wrap;        
+    } 
+     
+    /* dl 안에 있는 dt와 dd가 차지하는 영역의 합이 100이 되어야 세로로 떨어질 수가 있다!
+    만약 margin 값이 포함되어 있다면 100보다 좀 작게 값 설정해주면 됨 */
+    .map .cont div dl dt {
+        width: 10%;
+    }
+
+    .map .cont div dl dd {
+        width: 80%;
+    }
+
+}/* 640px 이하일 때 */
+
+    
